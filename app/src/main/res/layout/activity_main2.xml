@@ -9,20 +9,20 @@
     tools:context=".MainActivity2">
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/nombreEd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
+        android:ems="20"
         android:inputType="textPersonName"
-        android:text="NOMBRE" />
+        android:hint="NOMBRE"/>
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/telefonoEd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="TELÉFONO" />
+        android:ems="20"
+        android:inputType="number"
+        android:hint="TELÉFONO" />
 
     <RadioGroup
         android:layout_width="match_parent"
@@ -32,12 +32,14 @@
             android:id="@+id/radioButton4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:checked="false"
             android:text="Lista Negra" />
 
         <RadioButton
             android:id="@+id/radioButton3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:checked="true"
             android:text="Lista Blanca" />
     </RadioGroup>
 
