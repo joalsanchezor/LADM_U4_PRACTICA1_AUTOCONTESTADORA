@@ -20,8 +20,7 @@ class PhoneStateReceiver : BroadcastReceiver() {
     var listaNegra = ArrayList<String>()
 
     override fun onReceive(context: Context?, intent: Intent?) {
-        val obj = MainActivity()
-        if(obj.activadaAutocontestadora == true){
+
             if(intent!!.getStringExtra(TelephonyManager.EXTRA_STATE) == TelephonyManager.EXTRA_STATE_RINGING){
                 telephonyState = true
             }
@@ -66,7 +65,7 @@ class PhoneStateReceiver : BroadcastReceiver() {
                     }
                 }
             }
-        }
+
     }
 
     private fun registrarLlamada(cont: Context, numero: String, mensaje: String, contactoDeseado: String){

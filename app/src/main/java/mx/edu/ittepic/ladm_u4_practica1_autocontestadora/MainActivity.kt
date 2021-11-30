@@ -1,6 +1,7 @@
 package mx.edu.ittepic.ladm_u4_practica1_autocontestadora
 
 import android.Manifest
+import android.content.ContentValues
 import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
@@ -19,8 +20,7 @@ import java.lang.Exception
 class MainActivity : AppCompatActivity() {
     val db = FirebaseFirestore.getInstance()
     var listaLlamadasPerdidas = ArrayList<String>()
-    var desactivadaContestadora = true
-    var activadaAutocontestadora = false
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,16 +45,14 @@ class MainActivity : AppCompatActivity() {
         }
 
         button2.setOnClickListener {
-            if(desactivadaContestadora == true){
-                desactivadaContestadora = false
-                activadaAutocontestadora = true
+            if(consulta().equals("DESACTIVADO")){
+                actualizar("ACTIVADO")
                 button2.setText("AUTOCONTESTADORA ACTIVADA")
-                Toast.makeText(this, "SE HA ACTIVADO LA AUTOCONTESTADORA", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "AUTOCONTESTADORA ACTIVADA", Toast.LENGTH_SHORT).show()
             }else{
-                desactivadaContestadora = true
-                activadaAutocontestadora = false
+                actualizar("DESACTIVADO")
                 button2.setText("ACTIVAR AUTOCONTESTADORA")
-                Toast.makeText(this, "SE HA DESACTIVADO LA AUTOCONTESTADORA", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "AUTOCONTESTADORA DESACTIVADA", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -89,4 +87,26 @@ class MainActivity : AppCompatActivity() {
 
         }
     }
+
+    fun actualizar(estado : String){
+        var configuracion = Configuracion(this, "CONFIGURACION",null, 1).writableDatabase
+        val dato = ContentValues()
+
+        dato.put("estado",estado)
+
+        val resultado = configuracion.update("ESTADOAUTOCONTESTADORA", dato, "idEstado=?", arrayOf("1"))
+    }
+
+    public fun consulta() : String{
+        var configuracion = Configuracion(this, "CONFIGURACION",null, 1).readableDatabase
+        val cursor = configuracion.query("ESTADOAUTOCONTESTADORA", arrayOf("*"), "idEstado=?", arrayOf("1"), null, null, null)
+
+        var resultado = ""
+
+        if(cursor.moveToFirst()){
+            resultado = cursor.getString(1)
+        }
+        return resultado
+    }
+
 }
