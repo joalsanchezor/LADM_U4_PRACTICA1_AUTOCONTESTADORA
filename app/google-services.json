@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1055597721895",
+    "project_id": "unidad4-b1419",
+    "storage_bucket": "unidad4-b1419.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1055597721895:android:c78b6fd212a90bbfec1102",
+        "android_client_info": {
+          "package_name": "mx.edu.ittepic.ladm_u4_practica1_autocontestadora"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1055597721895-61vlrsugqof4l98jcglrisvhs7ptvt73.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUCfObACJWvlHY4yI-blWWJO85QDd1-d4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1055597721895-61vlrsugqof4l98jcglrisvhs7ptvt73.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
