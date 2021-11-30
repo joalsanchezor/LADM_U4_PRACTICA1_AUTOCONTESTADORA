@@ -22,7 +22,7 @@
         android:text="ACTIVAR AUTOCONTESTADORA" />
 
     <ListView
-        android:id="@+id/llamadasPerdidas"
+        android:id="@+id/listViewLlamadasPerdidas"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
