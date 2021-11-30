@@ -19,8 +19,7 @@ import java.lang.Exception
 
 class MainActivity : AppCompatActivity() {
     val db = FirebaseFirestore.getInstance()
-    var listaLlamadasPerdidas = ArrayList<String>()
-
+    public var listaLlamadasPerdidas = ArrayList<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,14 +37,16 @@ class MainActivity : AppCompatActivity() {
             ActivityCompat.requestPermissions(this, Array(1) { Manifest.permission.READ_CALL_LOG }, 101)
         }
 
-        cargarLlamadasPerdidas()
+        //cargarLlamadasPerdidas()
         button.setOnClickListener {
             val intent = Intent(this, MainActivity2::class.java)
             startActivity(intent)
         }
 
         button2.setOnClickListener {
-            if(consulta().equals("DESACTIVADO")){
+            cargarLlamadasPerdidas()
+
+        /*if(consulta().equals("DESACTIVADO")){
                 actualizar("ACTIVADO")
                 button2.setText("AUTOCONTESTADORA ACTIVADA")
                 Toast.makeText(this, "AUTOCONTESTADORA ACTIVADA", Toast.LENGTH_SHORT).show()
@@ -53,7 +54,7 @@ class MainActivity : AppCompatActivity() {
                 actualizar("DESACTIVADO")
                 button2.setText("ACTIVAR AUTOCONTESTADORA")
                 Toast.makeText(this, "AUTOCONTESTADORA DESACTIVADA", Toast.LENGTH_SHORT).show()
-            }
+            }*/
         }
     }
 
@@ -74,6 +75,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             listViewLlamadasPerdidas.adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listaLlamadasPerdidas)
+            listViewLlamadasPerdidas.invalidateViews()
         }
     }
 

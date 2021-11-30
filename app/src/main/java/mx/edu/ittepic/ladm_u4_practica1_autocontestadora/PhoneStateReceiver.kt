@@ -28,7 +28,6 @@ class PhoneStateReceiver : BroadcastReceiver() {
             if(intent.getStringExtra(TelephonyManager.EXTRA_STATE) == TelephonyManager.EXTRA_STATE_OFFHOOK){
                 telephonyState = false
             }
-
             if(telephonyState && intent.getStringExtra(TelephonyManager.EXTRA_STATE) == TelephonyManager.EXTRA_STATE_IDLE){
                 val numero = intent.extras?.getString("incoming_number")
                 db.collection("CONTACTOS").addSnapshotListener { value, error ->
