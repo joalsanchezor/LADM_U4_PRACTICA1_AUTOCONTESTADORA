@@ -74,9 +74,12 @@ class MainActivity : AppCompatActivity() {
                 listaLlamadasPerdidas.add(respuesta)
             }
 
-            listViewLlamadasPerdidas.adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listaLlamadasPerdidas)
-            listViewLlamadasPerdidas.invalidateViews()
         }
+        mostrarLlamadas()
+    }
+
+    private fun mostrarLlamadas(){
+        listViewLlamadasPerdidas.adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listaLlamadasPerdidas)
     }
 
     override fun onRequestPermissionsResult(
